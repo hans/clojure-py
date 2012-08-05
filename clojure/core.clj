@@ -1286,6 +1286,12 @@
   {:added "1.0"}
   [x] (instance? clojure.lang.ipersistentset/IPersistentSet x))
 
+(defn ifn?
+  "Returns true if x implements IFn. Note that many data structures
+  (e.g. sets and maps) implement IFn"
+  {:added "1.0"}
+  [x] (instance? clojure.lang.ifn/IFn x))
+
 (defn pylist?
   "Returns true if coll is a native python list"
   [coll] (instance? py/list coll))
