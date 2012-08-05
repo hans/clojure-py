@@ -78,6 +78,7 @@
   false? [:bool-false]
   ; boolean?
 
+  int?      [:int]
   integer?  [:int]
   float?    [:float]
   rational? [:int]
