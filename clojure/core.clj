@@ -1470,6 +1470,11 @@
   {:added "1.0"}
   [x] (py/float x))
 
+(defn float
+  "Coerce to float"
+  {:added "1.0"}
+  [x] (py/float x))
+
 (defn float?
   "Returns true if n is a floating point number"
   {:added "1.0"
