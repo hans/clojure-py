@@ -28,3 +28,7 @@
 (deftest next-tests
     (assertions/assert-equal (next [1 2]) (py/list [2]))
     (assertions/assert-equal (next nil) py/None))
+
+(deftest test-rand-nth-invariants
+  (let [elt (rand-nth [:a :b :c :d])]
+    (assertions/assert-true (#{:a :b :c :d} elt))))

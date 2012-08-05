@@ -3787,6 +3787,15 @@
   [& colls]
   `(concat ~@(map #(list `lazy-seq %) colls)))
 
+(defn rand-nth
+  "Return a random element of the (sequential) collection. Will have
+  the same performance characteristics as nth for the given
+  collection."
+  {:added "1.2"
+   :static true}
+  [coll]
+  (nth coll (rand-int (count coll))))
+
 (defn map-indexed
   "Returns a lazy sequence consisting of the result of applying f to 0 and the
   first item of coll, followed by applying f to 1 and the second item in coll,

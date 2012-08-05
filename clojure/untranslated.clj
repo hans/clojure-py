@@ -1529,15 +1529,6 @@
             (when-let [s (seq coll)]
               (reductions f (f init (first s)) (rest s)))))))
 
-(defn rand-nth
-  "Return a random element of the (sequential) collection. Will have
-  the same performance characteristics as nth for the given
-  collection."
-  {:added "1.2"
-   :static true}
-  [coll]
-  (nth coll (rand-int (count coll))))
-
 (defn partition-all
   "Returns a lazy sequence of lists like partition, but may include
   partitions with fewer than n items at the end."
