@@ -683,7 +683,49 @@
     (a/assert-true (empty? []))
     (a/assert-false (empty? [1])))
 
+(deftest empty-tests
+  (doseq [[x y] `((nil nil)
 
+                  (() ())
+                  ((1 2) ())
+
+                  ([] [])
+                  ([1 2] [])
+
+                  ;; ({} {})
+                  ;; ({:a 1 :b 2} {})
+
+                  ;; (~(sorted-map) ~(sorted-map))
+                  ;; (~(sorted-map :a 1 :b 2) ~(sorted-map))
+
+                  (#{} #{})
+                  (#{1 2} #{})
+
+                  ;; (~(sorted-set) ~(sorted-set))
+                  ;; (~(sorted-set 1 2)) ~(sorted-set)
+
+                  (~(seq ()) nil)                      ; (seq ()) => nil
+                  (~(seq '(1 2)) ())
+
+                  (~(seq []) nil)                      ; (seq []) => nil
+                  (~(seq [1 2]) ())
+
+                  (~(seq "") nil)                      ; (seq "") => nil
+                  (~(seq "ab") ())
+
+                  (~(lazy-seq ()) ())
+                  (~(lazy-seq '(1 2)) ())
+
+                  (~(lazy-seq []) ())
+                  (~(lazy-seq [1 2]) ())
+
+                  ; non-coll, non-seq => nil
+                  (42 nil)
+                  (1.2 nil)
+                  ("abc" nil)
+                  )]
+    (a/assert-true (= (empty x) y))
+    (a/assert-true (= (class (empty x)) (class y)))))
 
 (deftest do-tests
     (a/assert-equal (do) nil)

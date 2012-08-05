@@ -317,14 +317,6 @@
        (alter-meta! (var ~name) assoc :inline (fn ~name ~args ~expr))
        (var ~name))))
 
-(defn empty
-  "Returns an empty collection of the same category as coll, or nil"
-  {:added "1.0"
-   :static true}
-  [coll]
-  (when (instance? clojure.lang.IPersistentCollection coll)
-    (.empty ^clojure.lang.IPersistentCollection coll)))
-
 (defmacro amap
   "Maps an expression across an array a, using an index named idx, and
   return value named ret, initialized to a clone of a, then setting 

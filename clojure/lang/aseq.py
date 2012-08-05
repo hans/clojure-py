@@ -107,6 +107,14 @@ class ASeq(Obj, Sequential, ISeq, IHashEq, Iterable, IPrintable):
         from clojure.lang.cons import Cons
         return Cons(other, self)
 
+    def empty(self):
+        """Return an empty Cons.
+
+        The new seq will have this seq's meta data attached."""
+
+        from clojure.lang.persistentlist import EMPTY
+        return EMPTY.withMeta(self.meta())
+
     def __str__(self):
         """Return a string representation of this sequence.
 

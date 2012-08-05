@@ -2196,6 +2196,13 @@
    :static true}
   [sep coll] (drop 1 (interleave (repeat sep) coll)))
 
+(defn empty
+  "Returns an empty collection of the same category as coll, or nil"
+  {:added "1.0"}
+  [coll]
+  (when (instance? clojure.lang.ipersistentcollection/IPersistentCollection coll)
+    (.empty coll)))
+
 (defn max-key
   "Returns the x for which (k x), a number, is greatest."
   {:added "1.0"
