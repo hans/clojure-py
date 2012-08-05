@@ -81,7 +81,7 @@
   int?      [:int]
   integer?  [:int]
   float?    [:float]
-  rational? [:int]
+  ;; rational? [:int]
   number?   [:int :float]
 
   ; character?
