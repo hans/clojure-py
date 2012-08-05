@@ -11,7 +11,7 @@
 ;;
 ;;  Created 1/28/2009
 
-(ns clojure.test-clojure.predicates
+(ns tests.predicate-tests
   (:require [tests.assertions :as assertions])
   (:use [tests.utils :only [deftest]]))
 
