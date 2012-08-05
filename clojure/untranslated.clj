@@ -741,13 +741,6 @@
    :static true}
   [coll] (not (seq coll)))
 
-(defn ifn?
-  "Returns true if x implements IFn. Note that many data structures
-  (e.g. sets and maps) implement IFn"
-  {:added "1.0"
-   :static true}
-  [x] (instance? clojure.lang.IFn x))
-
 (defn associative?
  "Returns true if coll implements Associative"
  {:added "1.0"
