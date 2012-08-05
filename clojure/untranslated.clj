@@ -766,18 +766,6 @@
    :static true}
   [coll] (instance? clojure.lang.Sorted coll))
 
-(defn counted?
- "Returns true if coll implements count in constant time"
- {:added "1.0"
-   :static true}
-  [coll] (instance? clojure.lang.Counted coll))
-
-(defn reversible?
- "Returns true if coll implements Reversible"
- {:added "1.0"
-   :static true}
-  [coll] (instance? clojure.lang.Reversible coll))
-
 (def ^:dynamic
  ^{:doc "bound in a repl thread to the most recent exception caught by the repl"
    :added "1.0"}

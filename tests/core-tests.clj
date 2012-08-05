@@ -75,6 +75,19 @@
     (a/assert-true (zero? 0))
     (a/assert-false (zero? 1)))
 
+(deftest counted?-tests
+    (a/assert-true (counted? [:a :b :c]))
+    (a/assert-true (counted? '(:a :b :c)))
+    (a/assert-true (counted? {:a 1 :b 2 :c 3}))
+    (a/assert-true (counted? #{:a :b :c}))
+
+    (a/assert-false (counted? "asdf")))
+
+(deftest reversible?-tests
+    (a/assert-true (reversible? []))
+    (a/assert-false (reversible? '()))
+    (a/assert-false (reversible? #{})))
+
 (deftest count-tests
     (a/assert-equal (count '()) 0)
     (a/assert-equal (count '(1)) 1))

@@ -1304,6 +1304,16 @@
    :static true}
   [coll] (instance? clojure.lang/Sequential coll))
 
+(defn counted?
+  "Returns true if coll implements count in constant time"
+  {:added "1.0"}
+  [coll] (instance? clojure.lang.counted/Counted coll))
+
+(defn reversible?
+ "Returns true if coll implements Reversible"
+ {:added "1.0"}
+  [coll] (instance? clojure.lang.reversible/Reversible coll))
+
 (defn count
   "Returns the number of items in the collection. (count nil) returns 0.  Also
   works on strings, arrays, and Java Collections and Maps"
